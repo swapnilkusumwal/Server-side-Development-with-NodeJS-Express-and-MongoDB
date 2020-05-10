@@ -1,5 +1,5 @@
 {
-  "name": "example",
+  "name": "fourth",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,6 +7,14 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index"
   },
-  "author": "Swap",
-  "license": "ISC"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/swapnilkusumwal/Fourth.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/swapnilkusumwal/Fourth/issues"
+  },
+  "homepage": "https://github.com/swapnilkusumwal/Fourth#readme"
 }
