@@ -4,28 +4,41 @@ const Dishes=require('./models/dishes');
 
 const url="mongodb://localhost:27017";
 
-const connect=mongoose.connect(url,{useNewUrlParser: true});
+const connect=mongoose.connect(url,{useNewUrlParser: true,useFindAndModify: false});
 
 connect.then((db)=>{
     console.log('Connected correctly to server');
     
-    var newDish=Dishes({
+    Dishes.create({
         name:"Uthappizza",
         description:"test"
-    });
-    newDish.save()
-        .then((dish)=>{
-            console.log(dish);
-            return Dishes.find({}).exec();
-        })
-        .then((dishes)=>{
-            console.log(dishes);
-            return Dishes.deleteMany({});
-        })
-        .then(()=>{
-            return mongoose.connection.close();
-        })
-        .catch((err)=>{
-            console.log(err);
+    })
+    .then((dish)=>{
+        console.log(dish);
+        return Dishes.findByIdAndUpdate(dish._id,{
+            $set:{description:"updated test"}
+        },{
+            new:true 
+        }).exec();
+        //new : true ->this will return the dish back to us
+    })
+    .then((dish)=>{
+        console.log(dish);
+        dish.comments.push({
+            rating:5,
+            comment: "I\'m getting a sinking feeling!",
+            author: "Myself"
         });
+        return dish.save();
+    })
+    .then((dish)=>{
+        console.log(dish);
+        return Dishes.deleteMany({});
+    })
+    .then(()=>{
+        return mongoose.connection.close();
+    })
+    .catch((err)=>{
+        console.log(err);
+    });
 });
