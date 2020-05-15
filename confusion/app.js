@@ -14,6 +14,7 @@ var app = express();
 const mongoose=require('mongoose');
 
 const Dishes=require('./models/dishes');
+const Promotions=require('./models/promotions');
 const url="mongodb://localhost:27017/confusion";
 const connect = mongoose.connect(url,{useNewUrlParser: true,useUnifiedTopology: true,useFindAndModify: false});
 
