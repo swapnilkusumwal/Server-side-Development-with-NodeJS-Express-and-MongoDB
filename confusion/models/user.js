@@ -3,6 +3,14 @@ var Schema=mongoose.Schema;
 var passportLocalMongoose=require('passport-local-mongoose');
 
 var userSchema=new Schema({
+    firstname:{
+        type:String,
+        default:''
+    },
+    lastname:{
+        type:String,
+        default:''
+    }, 
     admin:{
         type:Boolean,
         default:false
@@ -11,4 +19,4 @@ var userSchema=new Schema({
 
 userSchema.plugin(passportLocalMongoose);
 
-module.exports=mongoose.model('user',userSchema);
+module.exports=mongoose.model('User',userSchema);
