@@ -15,7 +15,6 @@ var promoRouter=require('./routes/promoRouter');
 var leaderRouter=require('./routes/leaderRouter');
 const uploadRouter = require('./routes/uploadRouter');
 var app = express();
-
 app.all('*',(req,res,next)=>{
   if(req.secure){
     return next();

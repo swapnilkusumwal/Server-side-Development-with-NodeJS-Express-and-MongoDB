@@ -11,6 +11,7 @@ var userSchema=new Schema({
         type:String,
         default:''
     }, 
+    facbookId:String,
     admin:{
         type:Boolean,
         default:false
