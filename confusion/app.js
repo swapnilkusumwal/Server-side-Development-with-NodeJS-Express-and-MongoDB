@@ -13,6 +13,7 @@ var usersRouter = require('./routes/users');
 var dishRouter =require('./routes/dishRouter');
 var promoRouter=require('./routes/promoRouter');
 var leaderRouter=require('./routes/leaderRouter');
+var favoriteRouter=require('./routes/favoriteRouter');
 const uploadRouter = require('./routes/uploadRouter');
 var app = express();
 app.all('*',(req,res,next)=>{
@@ -26,8 +27,6 @@ app.all('*',(req,res,next)=>{
 
 const mongoose=require('mongoose');
 
-const Dishes=require('./models/dishes');
-const Promotions=require('./models/promotions');
 const url=config.mongoUrl;
 const connect = mongoose.connect(url,{useNewUrlParser: true,useUnifiedTopology: true,useFindAndModify: false});
 
@@ -55,6 +54,7 @@ app.use('/dishes',dishRouter);
 app.use('/promotions',promoRouter);
 app.use('/leaders',leaderRouter);
 app.use('/imageUpload',uploadRouter);
+app.use('/favorites',favoriteRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
