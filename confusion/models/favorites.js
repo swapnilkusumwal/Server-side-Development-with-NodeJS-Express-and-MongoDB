@@ -8,7 +8,7 @@ const favoriteSchema=new Schema({
     },
     dishes:[{
         type:mongoose.Schema.Types.ObjectId,
-        ref:'dish'
+        ref:'Dish'
     }]
 },{
     timestamps:true

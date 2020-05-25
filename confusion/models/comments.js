@@ -25,4 +25,4 @@ const commentSchema=new Schema({
 });
 
 var Comments=mongoose.model('Comment',commentSchema);
-modele.exports=Comments;
+module.exports=Comments;
